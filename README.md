@@ -6,8 +6,7 @@ ByteBreacher is a Online Web Interactive disassembler for some architectures
 ![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white)
 ![Criterion](https://raw.githubusercontent.com/Unam3dd/ByteBreacher/main/assets/criterion-title.svg)
 
-<a target="_blank" rel="noreferrer">
-<img src="https://cdn.hackr.io/uploads/topics_svg/1515163329FBBk5SGRAt.svg" width="36" height="36" alt="Assembly"/></a>
+<img src="https://cdn.hackr.io/uploads/topics_svg/1515163329FBBk5SGRAt.svg" width="36" height="36" alt="Assembly"/>
 <img src="https://gvisor.dev/assets/logos/logo_solo_on_white.svg" height="25" style="margin-right: 10px;" alt="logo">
 
 ![Nginx](https://img.shields.io/badge/nginx-%23009639.svg?style=for-the-badge&logo=nginx&logoColor=white)
