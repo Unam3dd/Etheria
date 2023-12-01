@@ -5,7 +5,7 @@ ByteBreacher is a Online Web Interactive disassembler for some architectures
 ![Git](https://img.shields.io/badge/git-%23F05033.svg?style=for-the-badge&logo=git&logoColor=white)
 ![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white)
 ![Criterion](https://raw.githubusercontent.com/Unam3dd/ByteBreacher/main/assets/criterion-title.svg)
-<a target="_blank" rel="noreferrer"><img src="https://cdn.hackr.io/uploads/topics_svg/1515163329FBBk5SGRAt.svg" width="36" height="36" alt="Assembly"</a>
+![Assembly](https://cdn.hackr.io/uploads/topics_svg/1515163329FBBk5SGRAt.svg)
 ![Nginx](https://img.shields.io/badge/nginx-%23009639.svg?style=for-the-badge&logo=nginx&logoColor=white)
 ![Raspberry Pi](https://img.shields.io/badge/-RaspberryPi-C51A4A?style=for-the-badge&logo=Raspberry-Pi)
 ![Postman](https://img.shields.io/badge/Postman-FF6C37?style=for-the-badge&logo=postman&logoColor=white)
