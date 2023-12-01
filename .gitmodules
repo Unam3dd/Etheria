@@ -14,3 +14,9 @@
 [submodule "modules/ByteBreacherCrypto"]
 	path = modules/ByteBreacherCrypto
 	url = git@github.com:Unam3dd/ByteBreacherCrypto.git
+[submodule "modules/ByteBreacherFMT"]
+	path = modules/ByteBreacherFMT
+	url = git@github.com:Unam3dd/ByteBreacherFMT.git
+[submodule "modules/ByteBreacherCDC"]
+	path = modules/ByteBreacherCDC
+	url = git@github.com:Unam3dd/ByteBreacherCDC.git
