@@ -38,3 +38,15 @@ ByteBreacher is a Online Web Interactive disassembler for some architectures
 ![MySQL](https://img.shields.io/badge/mysql-%2300f.svg?style=for-the-badge&logo=mysql&logoColor=white)
 ![GitHub Actions](https://img.shields.io/badge/github%20actions-%232671E5.svg?style=for-the-badge&logo=githubactions&logoColor=white)
 
+# Installation
+
+Over Https
+
+```bash
+$ git clone --recurse-submodules https://github.com/Unam3dd/ByteBreacher.git
+```
+
+```bash
+$ git clone --recurse-submodules git@github.com:Unam3dd/ByteBreacher.git
+```
+

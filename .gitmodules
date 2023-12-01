@@ -1,1 +1,4 @@
 
+[submodule "modules/ByteBreacherDecoder"]
+	path = modules/ByteBreacherDecoder
+	url = https://github.com/Unam3dd/ByteBreacherDecoder
