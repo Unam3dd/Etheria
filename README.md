@@ -8,7 +8,7 @@ ByteBreacher is a Online Web Interactive disassembler for some architectures
 
 <a target="_blank" rel="noreferrer">
 <img src="https://cdn.hackr.io/uploads/topics_svg/1515163329FBBk5SGRAt.svg" width="36" height="36" alt="Assembly"/></a>
-<img src="https://gvisor.dev/assets/logos/logo_solo_on_light.svg" height="25" style="margin-right: 10px;" alt="logo">
+<img src="https://gvisor.dev/assets/logos/logo_solo_on_white.svg" height="25" style="margin-right: 10px;" alt="logo">
 
 ![Nginx](https://img.shields.io/badge/nginx-%23009639.svg?style=for-the-badge&logo=nginx&logoColor=white)
 ![Raspberry Pi](https://img.shields.io/badge/-RaspberryPi-C51A4A?style=for-the-badge&logo=Raspberry-Pi)
