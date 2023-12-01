@@ -8,3 +8,6 @@
 [submodule "modules/ByteBreacherJSON"]
 	path = modules/ByteBreacherJSON
 	url = git@github.com:Unam3dd/ByteBreacherJSON.git
+[submodule "modules/ByteBreacherHTTP"]
+	path = modules/ByteBreacherHTTP
+	url = git@github.com:Unam3dd/ByteBreacherHTTP.git
