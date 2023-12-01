@@ -2,3 +2,6 @@
 [submodule "modules/ByteBreacherDecoder"]
 	path = modules/ByteBreacherDecoder
 	url = https://github.com/Unam3dd/ByteBreacherDecoder
+[submodule "modules/ByteBreacherDSA"]
+	path = modules/ByteBreacherDSA
+	url = git@github.com:Unam3dd/ByteBreacherDSA.git
