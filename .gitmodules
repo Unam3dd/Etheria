@@ -11,3 +11,6 @@
 [submodule "modules/ByteBreacherHTTP"]
 	path = modules/ByteBreacherHTTP
 	url = git@github.com:Unam3dd/ByteBreacherHTTP.git
+[submodule "modules/ByteBreacherCrypto"]
+	path = modules/ByteBreacherCrypto
+	url = git@github.com:Unam3dd/ByteBreacherCrypto.git
