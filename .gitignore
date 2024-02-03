@@ -1,4 +1,8 @@
 compile_commands.json
+test/*.test
+dist
+obj
+.env
 # Prerequisites
 *.d
 
