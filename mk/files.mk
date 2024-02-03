@@ -6,8 +6,8 @@ include ./mk/project.mk
 
 ifeq ($(EXT_FILE_PROJECT), c)
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror -I$(INCS_DIR) -pedantic -DVERSION="$(VERSION)"
-STATIC_CFLAGS = -Wall -Wextra -Werror -I$(INCS_DIR) -pedantic -DVERSION="$(VERSION)"
+CFLAGS = -Wall -Wextra -Werror -I$(INCS_DIR) -pedantic -D__BYTEBREACHER_VERSION__=\"$(VERSION)\"
+STATIC_CFLAGS = -Wall -Wextra -Werror -I$(INCS_DIR) -pedantic -D__BYTEBREACHER_VERSION__=\"$(VERSION)\"
 LDFLAGS =
 COMPILER_VERSION = $(shell $(CC) --version | head -n1)
 endif
@@ -16,8 +16,8 @@ endif
 
 ifeq ($(EXT_FILE_PROJECT), s)
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror -I$(INCS_DIR) -pedantic -DVERSION="$(VERSION)"
-STATIC_CFLAGS = -Wall -Wextra -Werror -I$(INCS_DIR) -pedantic -DVERSION="$(VERSION)"
+CFLAGS = -Wall -Wextra -Werror -I$(INCS_DIR) -pedantic -D__BYTEBREACHER_VERSION__=\"$(VERSION)\"
+STATIC_CFLAGS = -Wall -Wextra -Werror -I$(INCS_DIR) -pedantic -D__BYTEBREACHER_VERSION__=\"$(VERSION)\"
 LDFLAGS =
 COMPILER_VERSION = $(shell $(CC) --version | head -n1)
 endif

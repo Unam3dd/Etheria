@@ -1,12 +1,12 @@
 # Project Info
 
-PROJECT_NAME =supermath
+PROJECT_NAME=bytebreacher
 
-IS_LIBRARY=true
+IS_LIBRARY=false
 NO_PIE=false
-CANARY=false
+CANARY=true
 STDLIB=true
-FORTIFY=0
+FORTIFY=1
 EXECSTACK=0
 
 AUTHOR=Unam3dd
