@@ -6,8 +6,8 @@ include ./mk/project.mk
 
 ifeq ($(EXT_FILE_PROJECT), c)
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror -I$(INCS_DIR) -pedantic -DVERSION="$(VERSION)"
-STATIC_CFLAGS = -Wall -Wextra -Werror -I$(INCS_DIR) -pedantic -DVERSION="$(VERSION)"
+CFLAGS = -Wall -Wextra -Werror -I$(INCS_DIR) -pedantic -D__BYTEBREACHER_VERSION__=\"$(VERSION)\"
+STATIC_CFLAGS = -Wall -Wextra -Werror -I$(INCS_DIR) -pedantic -D__BYTEBREACHER_VERSION__=\"$(VERSION)\"
 LDFLAGS =
 COMPILER_VERSION = $(shell $(CC) --version | head -n1)
 endif
@@ -16,8 +16,8 @@ endif
 
 ifeq ($(EXT_FILE_PROJECT), s)
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror -I$(INCS_DIR) -pedantic -DVERSION="$(VERSION)"
-STATIC_CFLAGS = -Wall -Wextra -Werror -I$(INCS_DIR) -pedantic -DVERSION="$(VERSION)"
+CFLAGS = -Wall -Wextra -Werror -I$(INCS_DIR) -pedantic -D__BYTEBREACHER_VERSION__=\"$(VERSION)\"
+STATIC_CFLAGS = -Wall -Wextra -Werror -I$(INCS_DIR) -pedantic -D__BYTEBREACHER_VERSION__=\"$(VERSION)\"
 LDFLAGS =
 COMPILER_VERSION = $(shell $(CC) --version | head -n1)
 endif
@@ -107,8 +107,18 @@ OBJDIR = obj
 
 # Source Files
 
-SRCS = $(shell ls $(SRCS_DIR)/*.$(EXT_FILE_PROJECT))
-OBJS = $(addprefix $(OBJDIR)/, $(SRCS:.$(EXT_FILE_PROJECT)=.o))
+ifeq ($(IS_LIBRARY),true)
+	SRCS = $(shell ls  $(SRCS_DIR)/*.$(EXT_FILE_PROJECT))
+	OBJS = $(addprefix $(OBJDIR)/, $(SRCS:.$(EXT_FILE_PROJECT)=.o))
+else
+ifeq ($(TEST_ENV),true)
+	SRCS = $(shell ls -I $(SRCS_DIR)/main.c $(SRCS_DIR) | grep "*.c")
+	OBJS = $(addprefix $(OBJDIR)/, $(SRCS:.$(EXT_FILE_PROJECT)=.o))
+else
+	SRCS = $(shell ls $(SRCS_DIR)/*.$(EXT_FILE_PROJECT))
+	OBJS = $(addprefix $(OBJDIR)/, $(SRCS:.$(EXT_FILE_PROJECT)=.o))
+endif
+endif
 
 # Test Files
 

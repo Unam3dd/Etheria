@@ -69,9 +69,9 @@ clean:
 
 .ONESHELL:
 fclean: clean
-	echo -e "$(CHECK) $(NAME) was removed !"
+	echo -e "$(CHECK) $(GREEN)$(NAME)$(RST) was removed !"
 	rm -rf $(NAME)
-	echo -e "$(CHECK) $(STATIC_NAME) was removed !"
+	echo -e "$(CHECK) $(GREEN)$(STATIC_NAME)$(RST) was removed !"
 	rm -rf $(STATIC_NAME)
 	echo -e "$(CHECK) $(DIST_BASE) was removed !"
 	rm -rf $(DIST_BASE)
@@ -79,12 +79,21 @@ fclean: clean
 
 re: fclean build
 
+.ONESHELL:
 %.test: %.c
-	$(CC) $(CFLAGS) $< -o $@ -I./inc -lcriterion $(STATIC_NAME)
+ifeq ($(TEST_ENV),true)
+	$(CC) $(CFLAGS) $< -o $@ -I./inc -lcriterion $(OBJS)
 	./$@ --verbose=1
+else
+	$(MAKE) --silent TEST_ENV=true build_test
+	return $$?
+endif
 
-build_test: BANNER BANNER_MAIN $(STATIC_NAME) clean_test $(TEST_OBJS) clean
 
+.ONESHELL:
+build_test: BANNER BANNER_MAIN $(OBJS) clean_test $(TEST_OBJS)
+
+.ONESHELL:
 clean_test:
 	rm -rf $(TEST_OBJS)
 
@@ -96,7 +105,12 @@ run_test:
 	docker run --name cdev-test --hostname cdev-test -v .:/project/ -t cdev-test
 	docker stop cdev-test
 	docker rm cdev-test
-	sudo rm -rf dist obj
+	sudo rm -rf dist $(OBJDIR)
+
+run_build:
+	docker run --name cdev-build --hostname cdev-build -v .:/project/ -t cdev-build
+	docker stop cdev-build
+	docker rm cdev-build
 
 help: BANNER
 	$(call top_bar_center)
@@ -110,7 +124,10 @@ help: BANNER
 	$(call string_bar_center,    clean                 clean *.o)
 	$(call string_bar_center,    fclean                clean *.o + project)
 	$(call string_bar_center,    re                    rebuild the project)
-	$(call string_bar_center,    run_test              build and run all test files)
+	$(call string_bar_center,    run_build             build project inside a container)
+	$(call string_bar_center,    run_test              build and run all test files inside container)
+	$(call string_bar_center,    build_test            build and run all test on your machine)
+	$(call string_bar_center,    clean_test            clean test files)
 	$(call string_bar_center,    run                   run the project)
 	$(call bot_bar_center)
 
