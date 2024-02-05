@@ -31,6 +31,8 @@ jobs:
 
       - name: Wait moment building tests files
         run: make -C ${{ github.workspace }} build_test
+        env:
+          TERM: xterm
 
       - name: Perform CodeQL Analysis
         uses: github/codeql-action/analyze@v3
