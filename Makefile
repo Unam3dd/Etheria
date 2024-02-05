@@ -107,6 +107,11 @@ run_test:
 	docker rm cdev-test
 	sudo rm -rf dist $(OBJDIR)
 
+run_build:
+	docker run --name cdev-build --hostname cdev-build -v .:/project/ -t cdev-build
+	docker stop cdev-build
+	docker rm cdev-build
+
 help: BANNER
 	$(call top_bar_center)
 	$(call string_bar_center,                Help Main)
@@ -119,6 +124,7 @@ help: BANNER
 	$(call string_bar_center,    clean                 clean *.o)
 	$(call string_bar_center,    fclean                clean *.o + project)
 	$(call string_bar_center,    re                    rebuild the project)
+	$(call string_bar_center,    run_build             build project inside a container)
 	$(call string_bar_center,    run_test              build and run all test files inside container)
 	$(call string_bar_center,    build_test            build and run all test on your machine)
 	$(call string_bar_center,    clean_test            clean test files)
