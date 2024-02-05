@@ -1,0 +1,40 @@
+name: "Test"
+
+on:
+  push:
+    branches: [ "main", "dev", "test"]
+  pull_request:
+    branches: [ "main", "dev", "test"]
+  schedule:
+    - cron: '0 0,12 * * *'
+
+jobs:
+  analyze:
+    name: Analyze
+    runs-on: [ubuntu-latest]
+    permissions: write-all
+    strategy:
+      matrix:
+        language: [ 'c-cpp' ]
+
+    steps:
+      - name: Installing zsh and libcriterion
+        run: sudo apt-get update && sudo apt-get install zsh libcriterion-dev -y
+      
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Initialize CodeQL
+        uses: github/codeql-action/init@v3
+        with:
+          languages: ${{ matrix.language }}
+
+      - name: Wait moment building tests files
+        run: make -C ${{ github.workspace }} build_test
+        env:
+          TERM: xterm
+
+      - name: Perform CodeQL Analysis
+        uses: github/codeql-action/analyze@v3
+        with:
+          category: "/language:${{matrix.language}}"
