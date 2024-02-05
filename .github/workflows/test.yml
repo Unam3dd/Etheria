@@ -19,7 +19,7 @@ jobs:
 
     steps:
       - name: Installing zsh
-        run: sudo apt-get update && sudo apt-get install zsh -y
+        run: sudo apt-get update && sudo apt-get install zsh libcriterion-dev -y
       
       - name: Checkout repository
         uses: actions/checkout@v4
