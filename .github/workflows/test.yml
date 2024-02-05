@@ -18,7 +18,7 @@ jobs:
         language: [ 'c-cpp' ]
 
     steps:
-      - name: Installing zsh
+      - name: Installing zsh and libcriterion
         run: sudo apt-get update && sudo apt-get install zsh libcriterion-dev -y
       
       - name: Checkout repository
@@ -29,7 +29,7 @@ jobs:
         with:
           languages: ${{ matrix.language }}
 
-      - name: build_test
+      - name: Wait moment building tests files
         run: make -C ${{ github.workspace }} build_test
 
       - name: Perform CodeQL Analysis
