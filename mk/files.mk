@@ -107,8 +107,18 @@ OBJDIR = obj
 
 # Source Files
 
-SRCS = $(shell ls $(SRCS_DIR)/*.$(EXT_FILE_PROJECT))
-OBJS = $(addprefix $(OBJDIR)/, $(SRCS:.$(EXT_FILE_PROJECT)=.o))
+ifeq ($(IS_LIBRARY),true)
+	SRCS = $(shell ls  $(SRCS_DIR)/*.$(EXT_FILE_PROJECT))
+	OBJS = $(addprefix $(OBJDIR)/, $(SRCS:.$(EXT_FILE_PROJECT)=.o))
+else
+ifeq ($(TEST_ENV),true)
+	SRCS = $(shell ls -I $(SRCS_DIR)/main.c $(SRCS_DIR) | grep "*.c")
+	OBJS = $(addprefix $(OBJDIR)/, $(SRCS:.$(EXT_FILE_PROJECT)=.o))
+else
+	SRCS = $(shell ls $(SRCS_DIR)/*.$(EXT_FILE_PROJECT))
+	OBJS = $(addprefix $(OBJDIR)/, $(SRCS:.$(EXT_FILE_PROJECT)=.o))
+endif
+endif
 
 # Test Files
 

@@ -5,4 +5,6 @@
 #define __BYTEBREACHER_VERSION__ "undefined"
 #endif
 
+int sum(int a, int b);
+
 #endif
