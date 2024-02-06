@@ -4,6 +4,8 @@ include mk/icons.mk
 include mk/bar.mk
 include mk/checker.mk
 
+DOCS_FOLDER=docs
+
 .SILENT:
 all: BANNER BANNER_MAIN
 
@@ -128,6 +130,10 @@ help: BANNER
 	$(call string_bar_center,    run_test              build and run all test files inside container)
 	$(call string_bar_center,    build_test            build and run all test on your machine)
 	$(call string_bar_center,    clean_test            clean test files)
+	$(call string_bar_center,    docs                  generate documentaion)
+	$(call string_bar_center,    docs_rm               remove documentation)
+	$(call string_bar_center,    doxy_start            start doxygen server on port 8080)
+	$(call string_bar_center,    doxy_stop             stop doxygen server on port 8080)
 	$(call string_bar_center,    run                   run the project)
 	$(call bot_bar_center)
 
@@ -169,4 +175,24 @@ endif
 	$(call bot_bar_center)
 	echo -e "\n"
 
-.PHONY: build clean fclean re dynamic static build_test clean_test
+.ONESHELL:
+$(DOCS_FOLDER):
+	doxygen Doxyfile
+
+.ONESHELL:
+docs: $(DOCS_FOLDER)
+
+.ONESHELL:
+docs_rm:
+	rm -rf docs
+
+.ONESHELL:
+doxy_start: $(DOCS_FOLDER)
+	docker compose up --build -d
+
+.ONESHELL:
+doxy_stop:
+	docker compose -f docker-compose.yml stop
+	docker compose -f docker-compose.yml down --rmi all
+
+.PHONY: build clean fclean re dynamic static build_test clean_test docs
