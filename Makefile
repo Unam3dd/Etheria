@@ -91,7 +91,7 @@ endif
 
 
 .ONESHELL:
-build_test: BANNER BANNER_MAIN $(OBJS) clean_test $(TEST_OBJS)
+build_test: BANNER BANNER_MAIN $(OBJDIR) $(OBJS) clean_test $(TEST_OBJS)
 
 .ONESHELL:
 clean_test:
