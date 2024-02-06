@@ -29,7 +29,7 @@ LOCAL_IP = $(shell ifconfig $(shell ls /sys/class/net/ | grep "wl")  | grep "ine
 
 INCS_DIR = inc
 SRCS_DIR = src
-EXT_FILE_PROJECT = $(shell ls src | head -n1 | sed 's/^.*\.//')
+EXT_FILE_PROJECT = $(shell find $(SRCS_DIR) -type f | head -n1 | sed 's/^.*\.//')
 
 # Test Project files configuration
 

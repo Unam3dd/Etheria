@@ -108,14 +108,14 @@ OBJDIR = obj
 # Source Files
 
 ifeq ($(IS_LIBRARY),true)
-	SRCS = $(shell ls  $(SRCS_DIR)/*.$(EXT_FILE_PROJECT))
+	SRCS = $(shell find $(SRCS_DIR) -name "*.$(EXT_FILE_PROJECT)" -type f)
 	OBJS = $(addprefix $(OBJDIR)/, $(SRCS:.$(EXT_FILE_PROJECT)=.o))
 else
 ifeq ($(TEST_ENV),true)
-	SRCS = $(shell ls -I $(SRCS_DIR)/main.c $(SRCS_DIR) | grep "*.c")
+	SRCS = $(shell find $(SRCS_DIR) -iname "main.c"  -type f)
 	OBJS = $(addprefix $(OBJDIR)/, $(SRCS:.$(EXT_FILE_PROJECT)=.o))
 else
-	SRCS = $(shell ls $(SRCS_DIR)/*.$(EXT_FILE_PROJECT))
+	SRCS = $(shell find $(SRCS_DIR) -type f -name "*.$(EXT_FILE_PROJECT)")
 	OBJS = $(addprefix $(OBJDIR)/, $(SRCS:.$(EXT_FILE_PROJECT)=.o))
 endif
 endif
