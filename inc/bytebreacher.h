@@ -4,9 +4,6 @@
  * @author Unam3dd aka sam0verfl0w
  */
 
-/*
- * @def BYTEBREACHER_H includes guards
- */
 #ifndef BYTEBREACHER_H
 #define BYTEBREACHER_H
 
