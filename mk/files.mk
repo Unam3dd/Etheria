@@ -108,23 +108,23 @@ OBJDIR = obj
 # Source Files
 
 ifeq ($(IS_LIBRARY),true)
-	SRCS = $(shell find $(SRCS_DIR) -name "*.$(EXT_FILE_PROJECT)" -type f)
+	SRCS = $(shell find $(SRCS_DIR) -type f -iname \( "*.$(EXT_FILE_PROJECT)" \))
 	OBJS = $(addprefix $(OBJDIR)/, $(SRCS:.$(EXT_FILE_PROJECT)=.o))
 else
 ifeq ($(TEST_ENV),true)
-	SRCS = $(shell find $(SRCS_DIR) -iname "main.c"  -type f)
+	SRCS = $(shell find $(SRCS_DIR) -type f \( ! -name "main.c" \))
 	OBJS = $(addprefix $(OBJDIR)/, $(SRCS:.$(EXT_FILE_PROJECT)=.o))
 else
-	SRCS = $(shell find $(SRCS_DIR) -type f -name "*.$(EXT_FILE_PROJECT)")
+	SRCS = $(shell find $(SRCS_DIR) -type f \( -iname "*.$(EXT_FILE_PROJECT)" \))
 	OBJS = $(addprefix $(OBJDIR)/, $(SRCS:.$(EXT_FILE_PROJECT)=.o))
 endif
 endif
 
 # Test Files
 
-TEST_SRCS = $(shell ls $(TEST_SRCS_DIR)/*.$(EXT_FILE_PROJECT) 2> /dev/null)
-TEST_SRCS_CNT = $(shell ls $(TEST_SRCS_DIR) | grep -F .c | wc -l)
-TEST_OBJS = $(TEST_SRCS:.$(EXT_FILE_PROJECT)=.test)
+TEST_SRCS = $(shell find $(TEST_SRCS_DIR) -type f \( -iname "*.c" \) 2> /dev/null)
+TEST_SRCS_CNT = $(shell find $(TEST_SRCS_DIR) -type f \( -iname "*.c" \) | wc -l)
+TEST_OBJS = $(TEST_SRCS:.c=.test)
 
 # VPath
 

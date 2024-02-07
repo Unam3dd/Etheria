@@ -6,7 +6,7 @@ IS_LIBRARY=false
 NO_PIE=false
 CANARY=true
 STDLIB=true
-FORTIFY=2
+FORTIFY=0
 EXECSTACK=0
 
 AUTHOR=Unam3dd
@@ -38,8 +38,8 @@ TEST_SRCS_DIR = test
 
 # Progress Bar
 
-NF=$(shell ls -lR $(SRCS_DIR) | grep -F .$(EXT_FILE_PROJECT) | wc -l)
-HNF=$(shell ls -lR $(INCS_DIR) | grep -F .h | wc -l)
+NF=$(shell find $(SRCS_DIR) -name "*.$(EXT_FILE_PROJECT)" -type f | wc -l)
+HNF=$(shell find $(INCS_DIR) -name "*.h" -type f | wc -l)
 P=0
 COUNTER=1
 MOD=1

@@ -9,15 +9,8 @@
  */
 
 #include <stdio.h>
-#include "buffer.h"
 
 int main(void)
 {
-    BUFFER_CREATE(unsigned char, buf, 0x100);
-
-    BUFFER_COPY(buf, "hello", 5);
-
-    printf("%s\n", buf.buf);
-
     return (0);
 }
