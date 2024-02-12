@@ -206,3 +206,12 @@ Test(test_buffer_template_basic, test_buffer_heap_test3)
         cr_assert(!bufs[i].capacity);
     }
 }
+
+Test(test_buffer_template_basic, test_buffer_heap_test4)
+{
+    BUFFER_CREATE(int, toto, 0x4);
+
+    cr_assert(toto.capacity == sizeof(toto.data)/sizeof(int));
+    cr_assert(!toto.length);
+    cr_assert(toto.ptr == toto.data);
+}
