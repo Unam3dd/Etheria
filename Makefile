@@ -134,7 +134,6 @@ help: BANNER
 	$(call string_bar_center,    docs_rm               remove documentation)
 	$(call string_bar_center,    doxy_start            start doxygen server on port 8080)
 	$(call string_bar_center,    doxy_stop             stop doxygen server on port 8080)
-	$(call string_bar_center,    run                   run the project)
 	$(call bot_bar_center)
 
 info: BANNER BANNER_MAIN
