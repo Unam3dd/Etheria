@@ -1,2 +1,2 @@
 # ByteBreacher
-ByteBreacher is interactive disassembler tool
+ByteBreacher is interactive disassembler tool.
