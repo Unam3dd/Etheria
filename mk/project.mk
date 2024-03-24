@@ -6,7 +6,7 @@ IS_LIBRARY=false
 NO_PIE=false
 CANARY=true
 STDLIB=true
-FORTIFY=2
+FORTIFY=0
 EXECSTACK=0
 
 AUTHOR=Unam3dd
@@ -29,7 +29,7 @@ LOCAL_IP = $(shell ifconfig $(shell ls /sys/class/net/ | grep "wl")  | grep "ine
 
 INCS_DIR = inc
 SRCS_DIR = src
-EXT_FILE_PROJECT = $(shell ls src | head -n1 | sed 's/^.*\.//')
+EXT_FILE_PROJECT = $(shell find $(SRCS_DIR) -type f | head -n1 | sed 's/^.*\.//')
 
 # Test Project files configuration
 
@@ -38,8 +38,8 @@ TEST_SRCS_DIR = test
 
 # Progress Bar
 
-NF=$(shell ls -lR $(SRCS_DIR) | grep -F .$(EXT_FILE_PROJECT) | wc -l)
-HNF=$(shell ls -lR $(INCS_DIR) | grep -F .h | wc -l)
+NF=$(shell find $(SRCS_DIR) -name "*.$(EXT_FILE_PROJECT)" -type f | wc -l)
+HNF=$(shell find $(INCS_DIR) -name "*.h" -type f | wc -l)
 P=0
 COUNTER=1
 MOD=1
