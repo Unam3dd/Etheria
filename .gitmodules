@@ -1,0 +1,4 @@
+[submodule "eth-std"]
+	path = eth-std
+	url = git@github.com:Unam3dd/Etheria-std.git
+	branch = main
