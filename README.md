@@ -1,2 +1,3 @@
-# ByteBreacher
-ByteBreacher is interactive disassembler tool.
+# Etheria
+`Etheria` is set to become an essential tool for reverse engineering, security analysis, and Web3.0 development, offering a powerful yet user-friendly disassembly experience support `x86` `x86-64` `ARM` `ARM64` `MISC`.With its comprehensive feature set, including support for `WebAssembly` and `smart contracts`, a pure C API, Rust bindings, and web application compatibility, `Etheria` will empower users to understand and interact with executable code and blockchain applications like never before.
+`Etheria` is a powerfull and ligthweight library common used by Reverse Engineer also include a custom CLI and Web platforms. 
